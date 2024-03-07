@@ -27,12 +27,12 @@ namespace Eval_Gabriel.K_Guillaume.L.Test
             Assert.Equal(attendu, result);
         }
 
-        [Fact]
-
-        public void CasPeutPrendrePlusDeDeuxEntrees()
+        [Theory]
+        [InlineData("1,2,3")]
+        [InlineData("0012,9821,3,4,8")]
+        public void CasPeutPrendrePlusDeDeuxEntrees(string inputString)
         {
             // ÉTANT DONNÉ un string "x,y,z"
-            const string inputString = "1,2,3";
 
             // QUAND on utilise la méthode Parse
             int result = StringCalculator.Parse(inputString);
