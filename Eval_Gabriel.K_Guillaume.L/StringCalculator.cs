@@ -9,17 +9,18 @@
 
             int sum = 0;
 
-            foreach (var str in data)
+            for (int i = 0; i < data.Length; i++)
             {
-                int num = int.Parse(str);
+                int num = int.Parse(data[i]);
                 if (num < 0)
                 {
-                    throw new ArgumentException("Les nombres négatifs ne sont pas autorisés.");
+                    throw new ExceptionNombresNegatifs(num, i + 1);
                 }
                 sum += num;
             }
 
             return sum;
         }
+
     }
 }

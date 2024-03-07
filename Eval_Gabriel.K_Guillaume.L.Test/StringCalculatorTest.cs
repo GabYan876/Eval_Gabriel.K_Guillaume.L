@@ -59,15 +59,18 @@ namespace Eval_Gabriel.K_Guillaume.L.Test
         }
 
         [Fact]
-        public void CasAvecNombresNegatifs()
+        public void SiCasAvecNombresNegatifsAlorsOnRetourneLesNombresEtLeurPositions()
         {
-
             //ETANT DONNE un inputString avec un nombre négatif
             const string inputString = "-1,0";
 
-            //ALORS on renvoie une exception
-            Assert.Throws<ArgumentException>(() => StringCalculator.Parse(inputString));
+            //ALORS on envoie une exception qui renvoie le nombre et la position
+            var exception = Assert.Throws<ExceptionNombresNegatifs>(() => StringCalculator.Parse(inputString));
+            Assert.Equal(-1, exception.NombreFautif);
+            Assert.Equal(1, exception.Position); 
         }
+
+
 
     }
 }
