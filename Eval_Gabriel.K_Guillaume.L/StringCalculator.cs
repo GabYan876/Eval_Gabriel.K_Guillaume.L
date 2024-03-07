@@ -5,8 +5,14 @@
         public static int Parse(string input)
         {
             var data = input.Split(',');
+            int sum = 0;
 
-            return int.Parse(data.First()) + int.Parse(data.Last());
+            foreach (var str in data)
+            {
+                sum += int.Parse(str);
+            }
+
+            return sum;
         }
     }
 }
