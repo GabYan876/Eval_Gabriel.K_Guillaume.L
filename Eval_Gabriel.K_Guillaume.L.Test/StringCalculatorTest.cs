@@ -26,5 +26,20 @@ namespace Eval_Gabriel.K_Guillaume.L.Test
             //ALORS le string "x,y" devient l'int x+y
             Assert.Equal(attendu, result);
         }
+
+        [Fact]
+
+        public void CasPeutPrendrePlusDeDeuxEntrees()
+        {
+            // ÉTANT DONNÉ un string "x,y,z"
+            const string inputString = "1,2,3";
+
+            // QUAND on utilise la méthode Parse
+            int result = StringCalculator.Parse(inputString);
+
+            // ALORS le résultat doit être la somme des valeurs
+            int attendu = inputString.Split(',').Select(int.Parse).Sum();
+            Assert.Equal(attendu, result);
+        }
     }
 }
