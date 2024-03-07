@@ -54,5 +54,18 @@ namespace Eval_Gabriel.K_Guillaume.L.Test
 
             Assert.Equal(attendu, result);
         }
+        
+        [Fact]
+
+        public void CasAvecNombresNegatifs()
+        {
+            const string inputString = "-1,0";
+
+            var attendu = StringCalculator.Parse(inputString.Replace(" ", ""));
+
+            var result = StringCalculator.Parse(inputString);
+
+            Assert.Equal(attendu, result);
+        }
     }
 }
