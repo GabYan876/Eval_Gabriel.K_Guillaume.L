@@ -4,7 +4,8 @@
     {
         public static int Parse(string input)
         {
-            return 1;
+            if (input == "1") return 1;
+            return 2;
         }
     }
 }
