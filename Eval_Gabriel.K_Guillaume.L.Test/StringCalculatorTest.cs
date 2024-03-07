@@ -46,26 +46,28 @@ namespace Eval_Gabriel.K_Guillaume.L.Test
 
         public void CasAvecEspaces()
         {
+            //ETANT DONNE un inputString avec des espaces aléatoires
             const string inputString = "1 0, 1 0  ";
 
+            //QUAND on utilise la methode Parse on remplace les espaces par une chaîne vide
             var attendu = StringCalculator.Parse(inputString.Replace(" ", ""));
 
             var result = StringCalculator.Parse(inputString);
 
+            //ALORS le résultat doit être la somme des valeurs sans prendre en compte les espaces
             Assert.Equal(attendu, result);
         }
-        
-        [Fact]
 
+        [Fact]
         public void CasAvecNombresNegatifs()
         {
+
+            //ETANT DONNE un inputString avec un nombre négatif
             const string inputString = "-1,0";
 
-            var attendu = StringCalculator.Parse(inputString.Replace(" ", ""));
-
-            var result = StringCalculator.Parse(inputString);
-
-            Assert.Equal(attendu, result);
+            //ALORS on renvoie une exception
+            Assert.Throws<ArgumentException>(() => StringCalculator.Parse(inputString));
         }
+
     }
 }

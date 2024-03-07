@@ -6,11 +6,17 @@
         {
             input = input.Replace(" ", "");
             var data = input.Split(',');
+
             int sum = 0;
 
             foreach (var str in data)
             {
-                sum += int.Parse(str);
+                int num = int.Parse(str);
+                if (num < 0)
+                {
+                    throw new ArgumentException("Les nombres négatifs ne sont pas autorisés.");
+                }
+                sum += num;
             }
 
             return sum;
