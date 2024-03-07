@@ -1,4 +1,5 @@
 using System.IO;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Eval_Gabriel.K_Guillaume.L.Test
 {
@@ -6,22 +7,23 @@ namespace Eval_Gabriel.K_Guillaume.L.Test
     {
 
         [Theory]
-        [InlineData("1, 0",1)]
-        [InlineData("2, 0",2)]
-        [InlineData("1, 2",3)]
-        [InlineData("1,3",4)]
+        [InlineData("1, 0")]
+        [InlineData("2, 0")]
+        [InlineData("1, 2")]
+        [InlineData("1,3")]
+        [InlineData("0123,34866532")]
 
-        public void CasAPlusB(string parts, int attendu)
+        public void CasXPlusY(string parts)
         {
-            //ETANT DONNE un string "1,2"
-
-
+            //ETANT DONNE un string "x,y"
             //QUAND on utilise la methode Parse
             var input = string.Join(',', parts);
-
             var result = StringCalculator.Parse(input);
 
-            //ALORS le string "1,2" devient l'int 3
+            var data = input.Split(',');
+
+            var attendu = int.Parse(data.First()) + int.Parse(data.Last());
+            //ALORS le string "x,y" devient l'int x+y
             Assert.Equal(attendu, result);
         }
     }
