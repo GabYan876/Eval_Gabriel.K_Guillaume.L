@@ -1,6 +1,6 @@
 namespace Eval_Gabriel.K_Guillaume.L.Test
 {
-    public class UnitTest1
+    public class StringCalculatorTest
     {
         [Fact]
         public void Test1()
