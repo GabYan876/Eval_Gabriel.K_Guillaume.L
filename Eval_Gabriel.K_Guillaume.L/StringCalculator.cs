@@ -1,6 +1,10 @@
 ﻿namespace Eval_Gabriel.K_Guillaume.L
 {
-    internal class StringCalculator
+    public class StringCalculator
     {
+        public static int Parse(string input)
+        {
+            return 1;
+        }
     }
 }
