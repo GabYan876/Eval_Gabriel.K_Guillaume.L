@@ -4,6 +4,7 @@
     {
         public static int Parse(string input)
         {
+            input = input.Replace(" ", "");
             var data = input.Split(',');
             int sum = 0;
 

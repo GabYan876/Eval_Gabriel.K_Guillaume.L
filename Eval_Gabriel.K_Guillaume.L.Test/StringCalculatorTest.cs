@@ -46,13 +46,12 @@ namespace Eval_Gabriel.K_Guillaume.L.Test
 
         public void CasAvecEspaces()
         {
-            // ÉTANT DONNÉ un string "x,y,z"
-            string inputString = "1 2,3";
-            // QUAND on utilise la méthode Parse
-            int result = StringCalculator.Parse(inputString);
+            const string inputString = "1 0, 1 0  ";
 
-            // ALORS le résultat doit être la somme des valeurs
-            int attendu = inputString.Split(',').Select(int.Parse).Sum();
+            var attendu = StringCalculator.Parse(inputString.Replace(" ", ""));
+
+            var result = StringCalculator.Parse(inputString);
+
             Assert.Equal(attendu, result);
         }
     }
