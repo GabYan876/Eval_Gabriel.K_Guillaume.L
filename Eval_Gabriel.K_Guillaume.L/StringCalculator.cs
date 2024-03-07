@@ -4,22 +4,9 @@
     {
         public static int Parse(string input)
         {
-            string[] délimiteur = [","];
+            var data = input.Split(',');
 
-            switch (input)
-            {
-                case "1":
-                    return 1;
-                case "2":
-                    return 2;
-                case "1,2":
-                    return 3;
-
-                default:
-                    return 0;
-            }
-
-
+            return int.Parse(data.First()) + int.Parse(data.Last());
         }
     }
 }
